@@ -12,24 +12,28 @@
         <nav class="navbar-links">
             <span id="welcome-message" class="nav-link"></span>
             <a href="/" class="nav-link">Home</a>
-            <a href="/cart.html" class="nav-link cart-icon-container">
-                Cart
-                <span id="cart-counter">0</span>
-            </a>
-            
+            <a href="/cart.html" class="nav-link cart-icon-container">Cart<span id="cart-counter">0</span></a>
         </nav>
     </header>
     <main class="container">
         <h1>Your Shopping Cart</h1>
-        <div id="empty-cart-message" style="display: none;">
-            <p>Your cart is empty. <a href="/">Go shopping!</a></p>
-        </div>
+        <div id="empty-cart-message" style="display: none;"><p>Your cart is empty. <a href="/">Go shopping!</a></p></div>
         <div id="cart-wrapper" style="display: none;">
             <div id="cart-items" class="cart-items"></div>
             <div id="cart-summary" class="cart-summary"></div>
         </div>
     </main>
     <div id="toast-container"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Apna Meme Store</h3><p>Your one-stop shop for the freshest meme-themed T-shirts on the internet.</p></div>
+                <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="/">Home</a></li><li><a href="/cart.html">Cart</a></li></ul></div>
+                <div class="footer-section"><h4>Follow Us</h4><div class="social-icons"><a href="#" aria-label="Facebook">F</a><a href="#" aria-label="Instagram">I</a><a href="#" aria-label="Twitter">T</a></div></div>
+            </div>
+            <div class="footer-bottom">© 2024 Apna Meme Store | All Rights Reserved.</div>
+        </div>
+    </footer>
     <script src="/js/main.js" type="module"></script>
     <script src="/js/cart.js" type="module"></script>
 </body>
