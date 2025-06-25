@@ -1,0 +1,33 @@
+
+---
+
+### 📄 data.json
+
+This file provides a sample structure for your products, useful for initial data entry.
+
+```json
+{
+  "products": [
+    {
+      "name": "Stonks Meme T-Shirt",
+      "description": "High-quality cotton T-shirt featuring the iconic Stonks meme. The perfect attire for your next financial decision. Not financial advice.",
+      "price": 499,
+      "discountPercentage": 10,
+      "imageUrl": "https://via.placeholder.com/500x500.png?text=Stonks+T-Shirt"
+    },
+    {
+      "name": "Doge Meme T-Shirt",
+      "description": "Much wow. Very style. This T-shirt is made from the softest fabric in the doge universe. 100% comfy.",
+      "price": 549,
+      "discountPercentage": 15,
+      "imageUrl": "https://via.placeholder.com/500x500.png?text=Doge+T-Shirt"
+    },
+    {
+      "name": "This is Fine T-Shirt",
+      "description": "Everything is fine. Stay calm and wear this T-shirt while the world burns around you. It's a classic for a reason.",
+      "price": 499,
+      "discountPercentage": 0,
+      "imageUrl": "https://via.placeholder.com/500x500.png?text=This+Is+Fine+T-Shirt"
+    }
+  ]
+}

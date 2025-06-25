@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Apna Meme Store</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-brand">Apna Meme Store</a>
+        <nav class="navbar-links">
+            <span id="welcome-message" class="nav-link"></span>
+            <a href="/" class="nav-link">Home</a>
+            <a href="/cart.html" class="nav-link cart-icon-container">Cart<span id="cart-counter">0</span></a>
+            <a href="/admin.html" class="nav-link">Admin</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Our Awesome Meme T-Shirts</h1>
+        <div id="loader" class="loader"></div>
+        <div id="products-grid"></div>
+    </main>
+    <div id="user-details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Welcome to Apna Meme Store!</h2>
+            <p>Please enter your details to continue.</p>
+            <form id="user-details-form">
+                <div class="form-group"><label for="customer-name">Your Name</label><input type="text" id="customer-name" required></div>
+                <div class="form-group"><label for="customer-phone">10-Digit Phone Number</label><input type="tel" id="customer-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number."></div>
+                <button type="submit" class="btn btn-primary">Let's Go!</button>
+            </form>
+        </div>
+    </div>
+    <div id="toast-container"></div>
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/index.js" type="module"></script>
+</body>
+</html>

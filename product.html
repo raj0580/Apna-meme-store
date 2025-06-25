@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Apna Meme Store</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-brand">Apna Meme Store</a>
+        <nav class="navbar-links">
+             <span id="welcome-message" class="nav-link"></span>
+            <a href="/" class="nav-link">Home</a>
+            <a href="/cart.html" class="nav-link cart-icon-container">Cart<span id="cart-counter">0</span></a>
+            <a href="/admin.html" class="nav-link">Admin</a>
+        </nav>
+    </header>
+    <main class="container">
+        <div id="loader" class="loader"></div>
+        <section id="product-details" class="product-details-grid"></section>
+        <section id="other-products-section" style="margin-top: 4rem; display: none;">
+            <h2>You Might Also Like</h2>
+            <div id="other-products-grid"></div>
+        </section>
+    </main>
+    <div id="toast-container"></div>
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/product.js" type="module"></script>
+</body>
+</html>
