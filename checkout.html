@@ -12,11 +12,7 @@
         <nav class="navbar-links">
             <span id="welcome-message" class="nav-link"></span>
             <a href="/" class="nav-link">Home</a>
-            <a href="/cart.html" class="nav-link cart-icon-container">
-                Cart
-                <span id="cart-counter">0</span>
-            </a>
-            
+            <a href="/cart.html" class="nav-link cart-icon-container">Cart<span id="cart-counter">0</span></a>
         </nav>
     </header>
     <main class="container">
@@ -26,20 +22,26 @@
                 <h3>Shipping Information</h3>
                 <form id="checkout-form">
                     <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" required></div>
-                    <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" required pattern="[0-9]{10}"></div>
+                    <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" required></div>
                     <div class="form-group"><label for="address">Full Address</label><textarea id="address" rows="3" required></textarea></div>
                     <div class="form-group"><label for="pincode">Pincode</label><input type="text" id="pincode" required></div>
                     <button type="submit" class="btn btn-primary" id="place-order-btn">Place Order</button>
                 </form>
             </div>
-            <div id="order-summary-container" class="order-summary">
-                <!-- Order summary will be dynamically inserted here by checkout.js -->
-            </div>
+            <div id="order-summary-container" class="order-summary"></div>
         </div>
     </main>
     <div id="toast-container"></div>
-    
-    <!-- === SCRIPT TAGS WERE MISSING, NOW ADDED BACK === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Apna Meme Store</h3><p>Your one-stop shop for the freshest meme-themed T-shirts on the internet.</p></div>
+                <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="/">Home</a></li><li><a href="/cart.html">Cart</a></li></ul></div>
+                <div class="footer-section"><h4>Follow Us</h4><div class="social-icons"><a href="#" aria-label="Facebook">F</a><a href="#" aria-label="Instagram">I</a><a href="#" aria-label="Twitter">T</a></div></div>
+            </div>
+            <div class="footer-bottom">© 2024 Apna Meme Store | All Rights Reserved.</div>
+        </div>
+    </footer>
     <script src="/js/main.js" type="module"></script>
     <script src="/js/checkout.js" type="module"></script>
 </body>
