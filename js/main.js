@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, where, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 const app = initializeApp(firebaseConfig);
@@ -14,18 +14,37 @@ function updateWelcomeMessage() {
         welcomeMessage.textContent = `Welcome, ${user.name}!`;
     }
 }
+
 async function handleUserDetailsSubmit(e) {
     e.preventDefault();
     const name = document.getElementById('customer-name').value;
     const phone = document.getElementById('customer-phone').value;
-    if (!name || !/^\d{10}$/.test(phone)) { alert('Please enter a valid name and 10-digit phone number.'); return; }
+    if (!name || !/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid name and 10-digit phone number.');
+        return;
+    }
     const customerDetails = { name, phone };
     localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
-    try { await addDoc(collection(db, "Leads"), { ...customerDetails, capturedAt: serverTimestamp() }); } 
-    catch (error) { console.error("Could not save lead to Firestore:", error); }
+    
+    try {
+        const leadsRef = collection(db, "Leads");
+        const q = query(leadsRef, where("phone", "==", phone), limit(1));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            await addDoc(leadsRef, { ...customerDetails, capturedAt: serverTimestamp() });
+            console.log("New lead captured and saved.");
+        } else {
+            console.log("Existing lead found. Not creating a duplicate.");
+        }
+    } catch (error) {
+        console.error("Error during lead capture process:", error);
+    }
+    
     hideUserDetailsModal();
     updateWelcomeMessage();
 }
+
 export function getCart() { return JSON.parse(localStorage.getItem('cart')) || []; }
 export function saveCart(cart) { localStorage.setItem('cart', JSON.stringify(cart)); updateCartCounter(); }
 export function addToCart(product, productId) {
@@ -68,7 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateWelcomeMessage();
     const userDetailsForm = document.getElementById('user-details-form');
     if (userDetailsForm) {
-        if (!localStorage.getItem('customerDetails')) { showUserDetailsModal(); }
+        if (!localStorage.getItem('customerDetails')) {
+            showUserDetailsModal();
+        }
         userDetailsForm.addEventListener('submit', handleUserDetailsSubmit);
     }
 });
